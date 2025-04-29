@@ -33,7 +33,8 @@ git log --oneline --all --graph
 git branch看
 git checkout main 切換
 git checkout -b  develop新建並切換分之
-git push -u origin develop 綁定主分支
+******自己新建了一個 develop 分支（本地有，遠端沒有）
+git push -u origin develop 綁定主分支##只要一次 確保遠端有 之後都git push
 
 
 --------------------------
