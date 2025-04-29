@@ -21,3 +21,10 @@ git push -u origin master 綁定主分支
 
 =====================================
 git log看日至
+git log --oneline
+git log --oneline --all --graph
+
+
+分支
+git branch看
+git checkout -b  develop新建切換
