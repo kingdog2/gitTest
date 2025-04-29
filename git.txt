@@ -24,12 +24,12 @@ git log看日至
 git log --oneline
 git log --oneline --all --graph
 
-
+=====================================
 分支
 git branch看
 git checkout main 切換
 git checkout -b  develop新建並切換分之
-
+git push -u origin develop 綁定主分支
 
 git merge develop合併
 git branch -d develop刪除分之
