@@ -31,7 +31,12 @@ git checkout main 切換
 git checkout -b  develop新建並切換分之
 git push -u origin develop 綁定主分支
 
+
+--------------------------
+切到主分之合併develop
 git merge develop合併
+git push
+--------------------------
 git branch -d develop刪除分之
 git push origin :develop
 
@@ -41,3 +46,6 @@ git push origin :develop
 1.git pull
 code .改
 git push
+
+
+
