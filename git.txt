@@ -1,3 +1,7 @@
+取得
+git clone
+
+======
 先登入
   git config --global user.email "popo033284079@gmail.com"
   git config --global user.name "qazwsx5595zaqxsw5595"
@@ -42,10 +46,10 @@ git push origin :develop
 
 
 =====================================
-衝突
+衝突別人已經更新github
 1.git pull
 code .改
 git push
-
+2.
 
 
