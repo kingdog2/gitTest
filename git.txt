@@ -1,7 +1,8 @@
+===使用專案===
 取得
 git clone
 
-======
+===創建新專案===
 先登入
   git config --global user.email "popo033284079@gmail.com"
   git config --global user.name "qazwsx5595zaqxsw5595"
@@ -28,8 +29,7 @@ git log看日至
 git log --oneline
 git log --oneline --all --graph
 
-=====================================
-分支
+================分支=====================
 git branch看
 git checkout main 切換
 git checkout -b  develop新建並切換分之
@@ -45,7 +45,7 @@ git branch -d develop刪除分之
 git push origin :develop
 
 
-=====================================
+=================衝突====================
 衝突別人已經更新github
 1.push後發現 
 git pull 會告訴你衝突在哪 手動把東西先複製
