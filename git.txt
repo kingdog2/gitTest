@@ -53,10 +53,11 @@ code .改
 git add.
 git commit -m "123"
 git push
+
 -------------------------
 2.如果還沒push就發現    **使用 站存
 git stash 存
 git stash list看
 git pull
-git stash pop用暫存
+git stash pop用暫存 
 手動改
