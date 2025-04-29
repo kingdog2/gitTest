@@ -27,4 +27,17 @@ git log --oneline --all --graph
 
 分支
 git branch看
-git checkout -b  develop新建切換
+git checkout main 切換
+git checkout -b  develop新建並切換分之
+
+
+git merge develop合併
+git branch -d develop刪除分之
+git push origin :develop
+
+
+=====================================
+衝突
+1.git pull
+code .改
+git push
