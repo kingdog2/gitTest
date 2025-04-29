@@ -47,12 +47,14 @@ git push origin :develop
 
 =====================================
 衝突別人已經更新github
-1.手動把東西先複製
-git pull
+1.push後發現 
+git pull 會告訴你衝突在哪 手動把東西先複製
 code .改 
+git add.
+git commit -m "123"
 git push
-
-2.站存
+-------------------------
+2.如果還沒push就發現    **使用 站存
 git stash 存
 git stash list看
 git pull
