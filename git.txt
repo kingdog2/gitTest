@@ -1,0 +1,23 @@
+先登入
+  git config --global user.email "popo033284079@gmail.com"
+  git config --global user.name "qazwsx5595zaqxsw5595"
+
+先初始化
+git init 出現.git
+git status
+git add 1.txt
+	.
+
+git commit -m "第一次更改"
+git commit --amend -m "打錯了重打~第一次再更改"
+
+git push ##不知道psuh哪裡用git remote
+給遠端倉庫取的名字。
+git remote add origin  https://github.com/kingdog2/gitTest.git
+更改
+git remote set-url origin https://github.com/kingdog2/gitTest.git
+
+git push -u origin master 綁定主分支
+
+=====================================
+git log看日至
