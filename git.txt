@@ -5,7 +5,7 @@ git clone
 ===創建新專案===
 先登入
   git config --global user.email "popo033284079@gmail.com"
-  git config --global user.name "qazwsx5595zaqxsw5595"
+  git config --global user.name "kingdog2"
 
 先初始化
 git init 出現.git
