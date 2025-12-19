@@ -1,0 +1,36 @@
+main_window.py 像是一個「舞台」：它不處理具體業務，只負責放一個 QStackedWidget。
+
+home_view.py 像是一個「演員」：它只負責長什麼樣子，當它被點擊時，它會去呼叫 home_viewmodel.py。
+
+main_viewmodel.py 像是一個「導演」：當 home 說「我要去設定頁」時，main_viewmodel 接收到信號，並告訴 main_window 換下一場戲。
+
+
+
+=========================================================
+
+View 和 ViewModel 通常是一對一的，但 Model 是共享的。
+
+my_project/
+├── main.py                # 程式入口 (初始化 QApplication, 載入主視窗)
+├── config.ini             # 資料庫設定 (IP, Port, User...)
+├── assets/                # 靜態資源
+│   ├── images/            # 圖示、Logo
+│   └── styles.qss         # 全域樣式表
+├── src/
+│   ├── models/            # 【Model 層】
+│   │   ├── db_manager.py  # 資料庫連線引擎 (Singleton 模式)
+│   │   ├── user_model.py  # 使用者資料結構與 SQL 操作
+│   │   └── product_model.py
+│   ├── viewmodels/        # 【ViewModel 層】處理邏輯、訊號傳遞
+│   │   ├── main_viewmodel.py     # 負責「頁面切換信號」
+│   │   ├── home_viewmodel.py     # 負責「首頁」數據處理
+│   │   └── settings_viewmodel.py # 負責「設定頁」存取邏輯
+│   ├── views/             # 【View 層】只管介面佈局
+│   │   ├── main_window.py        # 主視窗 (含 QStackedWidget 容器)
+│   │   ├── home_view.py          # 首頁 UI
+│   │   ├── settings_view.py      # 設定 UI
+│   │   └── widgets/              # 可複用的自定義元件 (如自訂按鈕、卡片)
+│   └── utils/             # 工具類
+│       ├── config_loader.py      # 讀取 config.ini 的工具
+│       └── logger.py             # 日誌紀錄
+└── tests/                 # 單元測試 (測試 ViewModel 的邏輯)

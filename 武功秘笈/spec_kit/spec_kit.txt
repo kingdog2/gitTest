@@ -1,0 +1,57 @@
+pip install uv
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+
+set PATH=C:\Users\GeorgeChu\.local\bin;%PATH%
+
+# 初始化
+specify init <PROJECT_NAME>
+# 驗證
+specify check
+
+# 進入項目
+cd <PROJECT_NAME>
+
+================================
+constitution → specify → clarify(可以多做三次) → plan → checklist(選用) → tasks → analyze(選用) → implement → taskstoissues(選用) 
+1.堆疊功能: 用 clarify 向他澄清功能
+澄清漏的部分再請他補在spec上
+2.要開新功能: 就再一次specify 或是copliot
+
+英文的憲章聽說效果比較好
+
+會在 constitution 下一個要求 : 
+ 
+Add a new rule to the constitution.
+Keep this document in English only.
+All specifications, plans and user-facing documantation MUST be written in  Traditional Chinese (zh-TW).
+================================
+
+
+===========使用============== plan是技術線要求
+# 1. 不可違背的法律
+/constitution Keep the iOS Forest-style focus app radically simple and offline-first.
+Enforce test-first development, 60fps animations, <2s cold start, and VoiceOver/Dynamic Type support.
+
+# 2. 規範
+/specify Build a Forest-style Pomodoro app for iOS: start a 25-minute session to "plant"
+a tree that grows through 5 stages; cancel/quit kills the tree; completion saves it to a
+personal forest. Show countdown, pause/resume, local notification, and background-accurate timing.
+Store completed/abandoned sessions locally; show a forest grid and stats (total trees, total focus
+time, today's count, daily streak). Out of scope: custom durations, species, sync, sharing, watch, widgets.
+
+# 3. 澄清
+/clarify
+
+# 4. 計畫
+/plan Use SwiftUI + SwiftData on iOS 17+. Timer via Combine; local notifications via
+UNUserNotificationCenter; smooth 60fps growth animations; no third-party deps.
+Use XCTest/XCUITest; keep memory ~<50MB during active sessions.
+
+# 5. 任務
+/tasks
+
+# 6. 分析
+/analyze
+
+# 7. 實現
+/implement

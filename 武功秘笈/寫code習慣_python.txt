@@ -1,0 +1,12 @@
+===============Naming Convention======================
+檔名:  data_processor.py
+
+變數： user_name
+
+函式： get_user_data()
+
+Class:  PascalCase
+
+常數 :  MAX_RETRY_COUNT
+
+「內部使用」的變數（私有），不希望外部直接存取:  _var

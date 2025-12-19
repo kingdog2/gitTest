@@ -1,0 +1,14 @@
+https://efsrv.sporton.com.tw/efnet/ 
+
+mincrosoft和本地電腦視同個密碼 兩個都要90天換一次 
+"GeorgeChu@sporton.com.tw" 
+## georgechu@sporton.com.tw
+
+環境path兩個
+C:\Users\GeorgeChu\AppData\Local\anaconda3\Scripts
+
+
+環境直接用base
+安裝conda、heidiSQL、vscode、Git
+
+主管給 sar_app_test.sql、SAR APP

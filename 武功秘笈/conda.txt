@@ -1,0 +1,2 @@
+conda create -n myenv python=3.9
+Ctrl+Alt+I 
