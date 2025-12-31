@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>專案管理系統</string>
+  </property>
+  <property name="styleSheet">
+   <string>
+    QMainWindow { background-color: #0d1117; }
+    QWidget { color: #ffffff; font-family: &quot;Microsoft JhengHei&quot;; }
+    
+    /* 左側側邊欄 */
+    QFrame#leftSidebar { background-color: #161b22; border-right: 1px solid #30363d; }
+    
+    /* 滾動區域透明化樣式 */
+    QScrollArea { border: none; background-color: transparent; }
+    #scrollAreaWidgetContents { background-color: transparent; }
+    
+    /* 中間與右側外殼 */
+    QFrame#middleContent { background-color: #0d1117; border: none; }
+    QFrame#rightSidebar { background-color: #161b22; border-left: 1px solid #30363d; }
+
+    /* 過濾工具列外殼 */
+    QFrame#filterBarContainer { 
+        background-color: #1c2128; 
+        border: 1px solid #30363d; 
+        border-radius: 6px; 
+    }
+
+    /* 表格外殼 */
+    QFrame#tableContainer { 
+        background-color: #161b22; 
+        border: 1px solid #30363d; 
+        border-radius: 8px; 
+    }
+
+    /* 表格本體 */
+    QTableWidget { background-color: transparent; border: none; gridline-color: #30363d; }
+    QHeaderView::section { background-color: #21262d; color: #8b949e; border: 1px solid #30363d; padding: 4px; }
+    
+    /* 元件樣式 */
+    QLineEdit, QDateEdit { background-color: #0d1117; border: 1px solid #30363d; padding: 5px; border-radius: 4px; }
+    QPushButton { background-color: transparent; border: none; text-align: left; padding: 12px; border-radius: 6px; }
+    QPushButton:hover { background-color: #21262d; }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="rootLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="margin" stdset="0">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QScrollArea" name="mainScrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="mainScrollAreaContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1000</width>
+         <height>700</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="globalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="margin" stdset="0">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="leftSidebar">
+          <property name="minimumSize">
+           <size>
+            <width>160</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>160</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="vLayoutLeft">
+           <property name="spacing">
+            <number>10</number>
+           </property>
+           <property name="topMargin">
+            <number>14</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="profile_picture">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>150</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string>width: 100px; height: 150px; background-color: #30363d; border-radius: 20%;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignmentFlag::AlignHCenter">
+            <widget class="QLabel" name="user_name">
+             <property name="font">
+              <font>
+               <family>Microsoft JhengHei</family>
+               <pointsize>-1</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string>font-weight: bold; font-size: 14px;</string>
+             </property>
+             <property name="text">
+              <string>王小明</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignmentFlag::AlignHCenter">
+            <widget class="QLabel" name="user_position">
+             <property name="styleSheet">
+              <string>color: gray; font-size: 10px;</string>
+             </property>
+             <property name="text">
+              <string>Project Manager</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QScrollArea" name="navScrollArea">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>400</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string>font-size: 15px;</string>
+             </property>
+             <property name="widgetResizable">
+              <bool>true</bool>
+             </property>
+             <widget class="QWidget" name="scrollAreaWidgetContents">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>142</width>
+                <height>400</height>
+               </rect>
+              </property>
+              <layout class="QVBoxLayout" name="vLayoutNav">
+               <property name="margin" stdset="0">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QPushButton" name="my_projects_btn">
+                 <property name="text">
+                  <string>📁 我的專案</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="add_project_btn">
+                 <property name="text">
+                  <string>➕ 新增專案</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="check_progress_btn">
+                 <property name="text">
+                  <string>📊 查詢進度</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="change_password_btn">
+                 <property name="text">
+                  <string>🔑 修改密碼</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="spInternal">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+           <item>
+            <spacer name="spBottom">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="logout_btn">
+             <property name="styleSheet">
+              <string>color: #ff7b72; font-size: 15px;</string>
+             </property>
+             <property name="text">
+              <string>🚪 LOG OUT</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="middleContent">
+          <layout class="QVBoxLayout" name="vLayoutMiddle">
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <property name="margin" stdset="0">
+            <number>20</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="lblMainTitle">
+             <property name="font">
+              <font>
+               <family>Microsoft JhengHei</family>
+               <pointsize>-1</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string>font-weight: bold; font-size: 20px;</string>
+             </property>
+             <property name="text">
+              <string>專案列表總覽</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="filterBarContainer">
+             <layout class="QHBoxLayout" name="hLayoutFilter">
+              <property name="margin" stdset="0">
+               <number>10</number>
+              </property>
+              <item>
+               <widget class="QDateEdit" name="start_date">
+                <property name="styleSheet">
+                 <string notr="true">/* 1. 設定日曆整體背景與文字顏色 */
+QCalendarWidget QWidget {
+    background-color: #21262d; /* 深色背景 */
+    color: #ffffff;            /* 白色文字 */
+}
+
+/* 2. 設定日期區域的顏色 */
+QCalendarWidget QAbstractItemView:enabled {
+    color: #ffffff;            /* 日期數字顏色 */
+    selection-background-color: #aa55ff; /* 選中日期的背景色 (紫色) */
+    selection-color: #ffffff;  /* 選中日期的文字顏色 */
+}
+
+/* 3. 設定頂部導航欄 (月份和年份) */
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: #161b22;
+}
+
+/* 4. 設定月份選擇選單 */
+QCalendarWidget QMenu {
+    background-color: #21262d;
+    color: #ffffff;
+    border: 1px solid #30363d;
+}
+
+/* 5. 設定年份調整按鈕 (SpinBox) */
+QCalendarWidget QSpinBox {
+    color: #ffffff;
+    background-color: #0d1117;
+    selection-background-color: #aa55ff;
+}
+
+/* 6. 設定週六日或非本月日期的透明度 (選填，增加辨識度) */
+QCalendarWidget QAbstractItemView:disabled {
+    color: #484f58; /* 灰色，代表不可選或非本月 */
+}</string>
+                </property>
+                <property name="displayFormat">
+                 <string>yyyy/MM/dd</string>
+                </property>
+                <property name="calendarPopup">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblT">
+                <property name="text">
+                 <string>至</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QDateEdit" name="end_date">
+                <property name="styleSheet">
+                 <string notr="true">/* 1. 設定日曆整體背景與文字顏色 */
+QCalendarWidget QWidget {
+    background-color: #21262d; /* 深色背景 */
+    color: #ffffff;            /* 白色文字 */
+}
+
+/* 2. 設定日期區域的顏色 */
+QCalendarWidget QAbstractItemView:enabled {
+    color: #ffffff;            /* 日期數字顏色 */
+    selection-background-color: #aa55ff; /* 選中日期的背景色 (紫色) */
+    selection-color: #ffffff;  /* 選中日期的文字顏色 */
+}
+
+/* 3. 設定頂部導航欄 (月份和年份) */
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: #161b22;
+}
+
+/* 4. 設定月份選擇選單 */
+QCalendarWidget QMenu {
+    background-color: #21262d;
+    color: #ffffff;
+    border: 1px solid #30363d;
+}
+
+/* 5. 設定年份調整按鈕 (SpinBox) */
+QCalendarWidget QSpinBox {
+    color: #ffffff;
+    background-color: #0d1117;
+    selection-background-color: #aa55ff;
+}
+
+/* 6. 設定週六日或非本月日期的透明度 (選填，增加辨識度) */
+QCalendarWidget QAbstractItemView:disabled {
+    color: #484f58; /* 灰色，代表不可選或非本月 */
+}</string>
+                </property>
+                <property name="displayFormat">
+                 <string>yyyy/MM/dd</string>
+                </property>
+                <property name="calendarPopup">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="search">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="placeholderText">
+                 <string>搜尋 案號/客戶/PM...</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="search_btn">
+                <property name="styleSheet">
+                 <string>width: 16px; background-color: rgb(170, 85, 255); height: 16px;</string>
+                </property>
+                <property name="text">
+                 <string>🔍</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="tableContainer">
+             <layout class="QVBoxLayout" name="vLayoutTableWrap">
+              <property name="margin" stdset="0">
+               <number>2</number>
+              </property>
+              <item>
+               <widget class="QTableWidget" name="my_project_table">
+                <property name="columnCount">
+                 <number>8</number>
+                </property>
+                <column>
+                 <property name="text">
+                  <string>案號</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>客戶</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>型號</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>開始</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>結束</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>PM</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>狀態</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>進度</string>
+                 </property>
+                </column>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="rightSidebar">
+          <property name="minimumSize">
+           <size>
+            <width>180</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>180</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="vLayoutRight">
+           <item>
+            <widget class="QCheckBox" name="switch_dark_light_mode">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QCheckBox {
+  background-color: #222;  /* 深色背景 */
+  border-radius: 15px;
+  padding: 2px;
+  width: 30px;
+  height: 30px;
+}
+QCheckBox::indicator {
+  width: 26px;
+  height: 26px;
+  border-radius: 13px;
+  background: white;  /* 滑塊白色 */
+  position: relative;
+  left: 2px;
+  transition: left 0.2s;
+}
+QCheckBox::indicator:checked {
+  left: 32px;  /* 滑塊往右移 */
+  background: orange; /* 滑塊變橘色或放月牙圖案 */
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblRightTitle">
+             <property name="font">
+              <font>
+               <family>Microsoft JhengHei</family>
+               <pointsize>-1</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string>font-weight: bold; font-size: 20px;</string>
+             </property>
+             <property name="text">
+              <string>案件最新動態</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QListWidget" name="project_new_Status">
+             <property name="styleSheet">
+              <string>background-color: transparent; border: none;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

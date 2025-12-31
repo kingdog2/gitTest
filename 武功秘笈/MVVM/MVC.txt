@@ -1,0 +1,37 @@
+model = ForgetPasswordModel()
+self.ForgetPassword_UI = ForgetPassword_UI(self)
+self.forget_password_controller = ForgetPasswordController(model, self.ForgetPassword_UI)
+
+
+| 元件                 | 責任                                                                                 |
+| ------------------ | ---------------------------------------------------------------------------------- |
+| **Model (M)**      | ✅ 處理資料、運算、商業邏輯、資料庫操作 (SQL) <br> ❌ 不負責畫面、不接收使用者操作事件                                 |
+| **View (V)**       | ✅ 顯示畫面、收集使用者輸入 <br> ❌ 不做運算、不處理資料、不寫 SQL                                            |
+| **Controller (C)** | ✅ 接收 View 的事件 <br> ✅ 決定要呼叫哪個 Model 做運算或資料操作 <br> ✅ 把結果更新回 View <br> ❌ 不自己算邏輯（最好不要） |
+
+
+btn綁定function和function都在Controller然後運算都在Model?
+=============================================================
+
+my_project/
+├── main.py
+├── config.ini
+├── assets/
+├── src/
+│   ├── models/            # Model（不變）
+│   │   ├── db.py
+│   │   ├── user_model.py
+│   │   └── product_model.py
+│   ├── controllers/       # 【Controller 層】← 原本的 viewmodels
+│   │   ├── main_controller.py     # 負責頁面切換
+│   │   ├── home_controller.py     # 首頁邏輯
+│   │   └── settings_controller.py
+│   ├── views/             # View（不變）
+│   │   ├── main_window.py
+│   │   ├── home_view.py
+│   │   └── settings_view.py
+│   └── utils/
+└── tests/                 # 測試 Controller（不是 View）
+https://blog.51cto.com/u_16213434/11756561?utm_source=chatgpt.com
+
+

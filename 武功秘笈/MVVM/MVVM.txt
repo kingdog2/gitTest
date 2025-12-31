@@ -18,7 +18,7 @@ my_project/
 │   └── styles.qss         # 全域樣式表
 ├── src/
 │   ├── models/            # 【Model 層】
-│   │   ├── db_manager.py  # 資料庫連線引擎 (Singleton 模式)
+│   │   ├── db	.py  # 資料庫連線引擎 (Singleton 模式)
 │   │   ├── user_model.py  # 使用者資料結構與 SQL 操作
 │   │   └── product_model.py
 │   ├── viewmodels/        # 【ViewModel 層】處理邏輯、訊號傳遞

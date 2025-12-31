@@ -1,0 +1,119 @@
+1️⃣ MVC 版本
+# view.py
+from PyQt5.QtWidgets import QWidget, QPushButton, QLabel, QVBoxLayout
+
+class HomeView(QWidget):
+    def __init__(self, controller):
+        super().__init__()
+        self.controller = controller
+
+        self.label = QLabel("Not clicked")
+        self.btn = QPushButton("Click me")
+        self.btn.clicked.connect(self.controller.on_button_click)
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.label)
+        layout.addWidget(self.btn)
+        self.setLayout(layout)
+
+    def update_label(self, text):
+        self.label.setText(text)
+
+
+# controller.py
+class HomeController:
+    def __init__(self, view):
+        self.view = view
+
+    def on_button_click(self):
+        # 商業邏輯可以放在這
+        text = "Clicked!"  # 假設從 Model 取資料
+        self.view.update_label(text)
+
+
+# main.py
+from PyQt5.QtWidgets import QApplication
+import sys
+
+app = QApplication(sys.argv)
+view = HomeView(None)
+controller = HomeController(view)
+view.controller = controller
+view.show()
+sys.exit(app.exec_())
+
+
+✅ 特點（MVC）：
+
+View 直接呼叫 Controller 方法
+
+Controller 決定資料與流程
+
+View 可以做最小的 UI 判斷
+
+Command-style（命令式）
+
+2️⃣ MVVM 版本
+# viewmodel.py
+from PyQt5.QtCore import QObject, pyqtSignal
+
+class HomeViewModel(QObject):
+    text_changed = pyqtSignal(str)  # View 綁定的 signal
+
+    def __init__(self):
+        super().__init__()
+
+    def on_button_click(self):
+        # 不知道誰在聽，單純發 signal
+        self.text_changed.emit("Clicked!")
+
+
+# view.py
+from PyQt5.QtWidgets import QWidget, QPushButton, QLabel, QVBoxLayout
+
+class HomeView(QWidget):
+    def __init__(self, vm):
+        super().__init__()
+        self.vm = vm
+
+        self.label = QLabel("Not clicked")
+        self.btn = QPushButton("Click me")
+        self.btn.clicked.connect(self.vm.on_button_click)
+
+        # 綁定 signal
+        self.vm.text_changed.connect(self.update_label)
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.label)
+        layout.addWidget(self.btn)
+        self.setLayout(layout)
+
+    def update_label(self, text):
+        self.label.setText(text)
+
+
+# main.py
+from PyQt5.QtWidgets import QApplication
+import sys
+
+app = QApplication(sys.argv)
+vm = HomeViewModel()
+view = HomeView(vm)
+view.show()
+sys.exit(app.exec_())
+
+
+✅ 特點（MVVM）：
+
+View 不知道流程，只綁定 ViewModel signal
+
+ViewModel 發信號給 View
+
+更 declarative（狀態式）
+
+一眼差別
+方面				MVC			MVVM
+View 是否知道流程	✅ 直接呼叫 Controller		❌ 不知道
+View 發訊號方式		method call			.emit() signal
+邏輯位置		Controller			ViewModel
+UI 更新方式		Controller 指示			signal binding

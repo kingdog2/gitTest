@@ -1,0 +1,45 @@
+(上班前)
+# 先切到 main，抓最新遠端 main
+git checkout main
+git pull origin main
+
+# 切回你的功能分支 a
+git checkout a
+
+# 把最新 main 合併進來 a
+git merge main
+如果有衝突 → 解決 → commit
+
+
+(下班)
+# 解決衝突（如果有）
+git add <file>
+git commit  # 如果 merge 有衝突
+
+# 現在 a 已經基於最新 main，可以安全 push
+git push origin a
+
+
+
+
+
+==========
+第一次新增功能
+add: forget password feature
+后续功能扩增
+change: add hash logic to forget password
+后续重构 改变了函数的输入输出，或者彻底修改了实现方式
+refactor: restructure forget password hash function
+
+
+| Type         | 用途说明                            | 示例                                            |
+| ------------ | ------------------------------- | --------------------------------------------- |
+| **fix**      | 修复 bug                          | `fix: handle null pointer in user service`    |
+| **add**      | 新增功能或文件                         | `add: initial login feature`                  |
+| **change**   | 功能或规格变更（函数输入输出不变，但内部实现修改）       | `change: update API call logic`               |
+| **refactor** | 整理或重构代码（不改变功能）                  | `refactor: simplify validation logic`         |
+| **remove**   | 删除文件或功能                         | `remove: deprecated payment module`           |
+| **revert**   | 取消之前的变更                         | `revert: undo login feature`                  |
+| **merge**    | 合并 branch                       | `merge: merge branch feature/login into main` |
+| **update**   | 更新文档、数据库、JSON、Markdown 等（非代码逻辑） | `update: refresh README instructions`         |
+

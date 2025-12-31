@@ -12,3 +12,60 @@ C:\Users\GeorgeChu\AppData\Local\anaconda3\Scripts
 安裝conda、heidiSQL、vscode、Git
 
 主管給 sar_app_test.sql、SAR APP
+
+
+
+
+
+好像先從case_view再轉跳proj_setting_controll
+可是介面是先proj_setting_controll 再case_view 所以相反!
+
+
+https://github.com/MarkW1401/SAR_App_Temp
+
+git config --global user.email "georgechu@sporton.com.tw"
+git config --global user.name "georgechu777"
+
+git clone https://georgechu777@github.com/kingdog2/gitTest.git
+
+
+
+user table新增兩個欄位來存問題(Foreign Key)與答案（答案會做雜湊)
+然後新table Primary Key存問題
+例如：
+你最愛的寵物是誰？
+你就讀的第一所學校？
+你最喜歡的顏色？
+
+可行嗎
+
+
+CREATE TABLE user_password_question ( question_id INT AUTO_INCREMENT PRIMARY KEY, question_text VARCHAR(255) NOT NULL );
+-----
+ALTER TABLE user_password_question AUTO_INCREMENT = 0;
+
+-----
+
+ALTER TABLE user_copy_george
+ADD COLUMN question INT NULL,
+ADD COLUMN question_answer VARCHAR(255) NULL,
+ADD CONSTRAINT fk_user_password_question
+    FOREIGN KEY (question) REFERENCES user_password_question(question_id);
+
+
+
+
+=====查詢
+SELECT u.account, q.question_text
+FROM user_copy_george AS u
+Left JOIN user_password_question AS q
+ON u.question = q.question_id WHERE u.account='test'; 
+
+
+
+
+.UI
+python c:\Users\GeorgeChu\Desktop\SAR APP\Generate_qrc.py 生成resources.qrc
+pyside6-rcc resources.qrc -o resources_rc.py
+
+
