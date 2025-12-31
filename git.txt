@@ -1,6 +1,9 @@
 ===使用專案===
 取得
 git clone
+私人第一次clone
+git clone https://georgechu7777777@github.com/kingdog2/gitTest.git
+
 
 ===創建新專案  github先創repo===
 先登入
